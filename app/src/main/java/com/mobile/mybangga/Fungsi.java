@@ -7,7 +7,6 @@ import java.util.Locale;
 public class Fungsi {
 
     public String formatRupiah(Double number){
-
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         formatRupiah.setMaximumFractionDigits(0);
