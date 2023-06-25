@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeToRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wave"
+            tools:context=".ui.home.HomeFragment">
+            <TextView
+                android:id="@+id/saldo_rekening_utama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:text="@string/saldo_rekening0"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/txtwarnadepan"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/layout_saldo"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/saldo_rekening_utama"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:textColor="@color/txtwarnadepan"
+                    android:layout_marginRight="10dp"/>
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/nominalrekening0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:drawableRight="@drawable/ic_visibility"
+                            android:drawablePadding="10dp"
+                            android:drawableTint="@color/txtwarnadepan"
+                            android:password="true"
+                            android:tag="nominalrekening0"
+                            android:text="150.000"
+                            android:textAlignment="center"
+                            android:textColor="@color/txtwarnadepan"
+                            android:textSize="25dp"
+                            android:textStyle="bold"
+                            android:onClick="onklik"/>
+<!--                            <Button-->
+<!--                                android:id="@+id/btn_lht_saldo"-->
+<!--                                android:layout_width="40dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:background="@android:color/transparent"-->
+<!--                                android:layout_gravity="right"-->
+<!--                                android:onClick="onklik"/>-->
+                    </FrameLayout>
+    <!--            android:onClick="onklik"-->
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_rekening_lain"
+                android:layout_width="220dp"
+                android:layout_height="60dp"
+                android:text="@string/Rekening_Lain"
+                android:textColor="@color/txtwarnadepan"
+                android:background="@drawable/rounded_corner"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/layout_saldo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textAllCaps="false"
+                android:elevation="50dp"
+                android:outlineAmbientShadowColor="#E91E63"
+                android:outlineSpotShadowColor="#E91E63"
+                android:onClick="onklik"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:id="@+id/cardv1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_rekening_lain"
+                app:cardElevation="15dp"
+                android:outlineAmbientShadowColor="#2196F3"
+                android:outlineSpotShadowColor="#2196F3">
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        style="@style/TablrowStyle"
+                        android:stretchColumns="0,1,2,3">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            style="@style/StyleLinearLayout"
+                            android:layout_column="0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/btn_bulat_master"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/cash_withdrawal" />
+
+                            <TextView
+                                style="@style/TextButton"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="Tarik Tunai" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_column="1"
+                            style="@style/StyleLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/btn_bulat_master"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/money_bill_transfer" />
+
+                            <TextView
+                                style="@style/TextButton"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="Transfer" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_column="2"
+                            style="@style/StyleLinearLayout"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/btn_bulat_master"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_wallet" />
+
+                            <TextView
+                                style="@style/TextButton"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="Dompet\nDigital" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_column="3"
+                            style="@style/StyleLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageButton
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/btn_bulat_master"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/phone_vibrate" />
+
+                            <TextView
+                                style="@style/TextButton"
+                                android:layout_gravity="bottom|center_horizontal"
+                                android:text="Pulsa/Data" />
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        style="@style/TablrowStyle"
+                        android:stretchColumns="0,1,2,3">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_column="0"
+                            style="@style/StyleLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <ImageButton
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:background="@drawable/btn_bulat_master"
+                                android:src="@drawable/gmoney"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_gravity="bottom|center_horizontal"
+                                style="@style/TextButton"
+                                android:text="G-Money"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_column="1"
+                            style="@style/StyleLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <ImageButton
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:background="@drawable/btn_bulat_master"
+                                android:src="@drawable/lightning"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_gravity="bottom|center_horizontal"
+                                style="@style/TextButton"
+                                android:text="Listrik"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_column="2"
+                            style="@style/StyleLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <ImageButton
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:background="@drawable/btn_bulat_master"
+                                android:src="@drawable/pdam"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_gravity="bottom|center_horizontal"
+                                style="@style/TextButton"
+                                android:text="PDAM"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_column="3"
+                            style="@style/StyleLinearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <ImageButton
+                                android:layout_gravity="center_horizontal"
+                                android:layout_width="@dimen/size_tombol_bulat"
+                                android:layout_height="@dimen/size_tombol_bulat"
+                                android:background="@drawable/btn_bulat_master"
+                                android:src="@drawable/lainnya"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_gravity="bottom|center_horizontal"
+                                style="@style/TextButton"
+                                android:text="Lainnya"/>
+                        </LinearLayout>
+
+                    </TableRow>
+                </TableLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtdompet"
+                app:layout_constraintLeft_toLeftOf="@+id/cardv1"
+                app:layout_constraintTop_toBottomOf="@+id/cardv1"
+                android:text="Dompet Digital"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/utama"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@+id/cardv1"
+                app:layout_constraintTop_toBottomOf="@+id/cardv1"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtdompet"
+                android:text="Edit"
+                android:id="@+id/EdtDompet"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/utama"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recylceViewDompet"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/EdtDompet"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/txtdompet"
+                tools:listitem="@layout/list_dompet"
+                app:layout_constraintEnd_toEndOf="@+id/EdtDompet"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtctkeuangan"
+                app:layout_constraintLeft_toLeftOf="@+id/cardv1"
+                app:layout_constraintTop_toBottomOf="@+id/recylceViewDompet"
+                android:text="Catatan Keuangan"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/utama"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@+id/cardv1"
+                app:layout_constraintTop_toBottomOf="@+id/recylceViewDompet"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtctkeuangan"
+                android:text="Lihat Detail"
+                android:id="@+id/EdtCtKeuangan"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/utama"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardcatatan"
+                android:layout_width="380dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintTop_toBottomOf="@id/EdtCtKeuangan"
+                app:layout_constraintRight_toRightOf="@id/EdtCtKeuangan"
+                app:layout_constraintLeft_toLeftOf="@id/txtctkeuangan">
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="0,1">
+                    <TableRow
+                        android:paddingTop="20dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_column="0">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/down_arrow"
+                                android:backgroundTint="@android:color/holo_green_light"
+                                />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#3C3131"
+                                android:textSize="20dp"
+                                android:text="Pemasukan"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_column="1">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/up_arrow"
+                                android:backgroundTint="@android:color/holo_green_light"
+                                />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#3C3131"
+                                android:layout_column="1"
+                                android:textSize="20dp"
+                                android:text="Pengeluaran"
+                                />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingBottom="20dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_column="0"
+                            android:textSize="20dp"
+                            android:text="Rp 0"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:layout_column="1"
+                            android:textSize="20dp"
+                            android:text="Rp 0"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:paddingBottom="20dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_span="2">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#3C3131"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold"
+                                    android:text="Selisih"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/TextAppearance.AppCompat.Title"
+                                    android:layout_marginLeft="10dp"
+                                    android:textColor="@color/green"
+                                    android:textSize="20dp"
+                                    android:text="Rp 0"/>
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtspesial"
+                app:layout_constraintLeft_toLeftOf="@+id/cardv1"
+                app:layout_constraintTop_toBottomOf="@+id/cardcatatan"
+                android:text="Spesial Untukmu"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/utama"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@+id/cardv1"
+                app:layout_constraintTop_toBottomOf="@+id/cardcatatan"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtspesial"
+                android:text="Lihat Lebih"
+                android:id="@+id/Edtspesial"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/utama"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recylceViewSpesial"
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:layout_height="280dp"
+                android:scrollbars="vertical"
+                android:layout_marginTop="20dp"
+                tools:listitem="@layout/list_spesial"
+                app:layout_constraintTop_toBottomOf="@+id/txtspesial"
+                app:layout_constraintStart_toStartOf="@+id/txtspesial"
+                app:layout_constraintEnd_toEndOf="@+id/Edtspesial"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

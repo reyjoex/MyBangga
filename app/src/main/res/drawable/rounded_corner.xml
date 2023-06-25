@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- Gray shadow. -->
+        <item
+            android:left="3dp"
+            android:top="5dp">
+            <shape>
+                <solid android:color="@android:color/darker_gray" />
+                <corners android:radius="50dp" />
+            </shape>
+        </item>
+        <!-- warna utama. -->
+        <item>
+            <inset android:insetBottom="2dp">
+                <selector>
+                    <item
+                        android:state_pressed="true"
+                        android:bottom="5dp"
+                        android:right="3dp">
+                        <shape>
+                            <solid android:color="@android:color/darker_gray" />
+                            <corners android:radius="50dp" />
+                            <stroke android:width="2dp"/>
+<!--                            <stroke android:color="@color/txtwarnadepan"/>-->
+                        </shape>
+                    </item>
+
+                    <item
+                        android:state_focused="false"
+                        android:state_pressed="false"
+                        android:state_selected="false"
+                        android:bottom="5dp"
+                        android:right="3dp">
+                        <shape>
+                            <solid android:color="@color/utama" />
+                            <corners android:radius="50dp" />
+                            <stroke android:width="2dp"/>
+                            <stroke android:color="@color/txtwarnadepan"/>
+                        </shape>
+                    </item>
+                </selector>
+            </inset>
+        </item>
+    </layer-list>
+
+<!--</selector>-->
